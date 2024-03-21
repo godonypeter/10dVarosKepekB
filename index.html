@@ -7,6 +7,7 @@
     <title>Kedvenc városaink</title>
     <style>
         li{ cursor: pointer;}
+        li:hover{ font-weight: bold; }
     </style>
 </head>
 <body>
@@ -42,5 +43,15 @@ function kepcsere(varos,szemely){
     nagykep.src='kepek/'+varos+'.png';
     nagykep.title=szemely+' egyik kedvenc városa';
 }
+
+var prev = null;
+document.querySelectorAll("li").forEach(e => {
+    e.addEventListener("click", () => {
+        if(prev != null) prev.style.fontWeight = "";
+        e.style.fontWeight = "bold";
+        prev = e;
+    });
+});
+
 </script>
 </html>
